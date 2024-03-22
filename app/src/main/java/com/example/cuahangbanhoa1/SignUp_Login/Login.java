@@ -15,7 +15,7 @@ import com.example.cuahangbanhoa1.R;
 
 public class Login extends AppCompatActivity {
 
-    AccountDatabaseHelper databaseHelper;
+    DatabaseHelper databaseHelper;
     TextView tvSignup;
     EditText edtUsername,edtPassword;
     Button btnLogin;
@@ -25,7 +25,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        databaseHelper=new AccountDatabaseHelper(this);
+        databaseHelper=new DatabaseHelper(this);
         edtUsername=findViewById(R.id.edtUsername);
         edtPassword=findViewById(R.id.edtPassword);
         btnLogin=findViewById(R.id.btnLogin);

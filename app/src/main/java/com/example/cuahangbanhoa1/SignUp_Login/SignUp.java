@@ -14,7 +14,7 @@ import com.example.cuahangbanhoa1.R;
 
 public class SignUp extends AppCompatActivity {
 
-    AccountDatabaseHelper databaseHelper;
+    DatabaseHelper databaseHelper;
     EditText edtName,edtUsername,edtPassword,edtDate;
     TextView tvLogin;
     Button btnSignUp;
@@ -23,7 +23,7 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        databaseHelper=new AccountDatabaseHelper(this);
+        databaseHelper=new DatabaseHelper(this);
         edtName= findViewById(R.id.edtName);
         edtUsername= findViewById(R.id.edtUsername);
         edtPassword= findViewById(R.id.edtPassword);

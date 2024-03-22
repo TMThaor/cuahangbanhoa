@@ -4,58 +4,48 @@ import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cuahangbanhoa1.Product.Model.Product;
 import com.example.cuahangbanhoa1.Product.adapter.ProductAdapter;
 import com.example.cuahangbanhoa1.R;
-import com.example.cuahangbanhoa1.SignUp_Login.AccountDatabaseHelper;
+import com.example.cuahangbanhoa1.SignUp_Login.DatabaseHelper;
 import com.example.cuahangbanhoa1.databinding.ActivityMainBinding;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainProduct extends AppCompatActivity {
 
-    AccountDatabaseHelper database;
+    DatabaseHelper database;
     ArrayList<Product> listProduct;
     RecyclerView rvProduct;
     ProductAdapter rvAdapter;
-//    FloatingActionButton add;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_product);
 
        rvProduct=findViewById(R.id.rvProduct);
-//        add=findViewById(R.id.floatingActionButton);
-//        add.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                autoInsertDatabase();
-//            }
-//        });
        listProduct=new ArrayList<>();
-       database=new AccountDatabaseHelper(this);
-        System.out.println(database);
-
+       database=new DatabaseHelper(this);
 
        initData();
+       if(listProduct.size()==0){
+           autoInsertDatabase();
+           initData();
+       }
 
 
 
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-//        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
         rvProduct.setLayoutManager(mLayoutManager);
 
 
@@ -96,16 +86,13 @@ public class MainProduct extends AppCompatActivity {
 
 
     void autoInsertDatabase(){
+        Random rand=new Random();
         for (int i = 1; i <= 10; i++) {
-            String name="Hoa "+i;
-            String description="Mô tả hoa "+i;
-            double price=999.9;
+            String name="Product "+i;
+            String description="Mô tả của sản phẩm "+i;
+            double price=rand.nextDouble()*100;
             String imageId="h"+i;
-            Boolean insert =database.insertProduct(name,description,price,imageId);
-            if(insert==true)
-                Toast.makeText(this, "đã thêm thành công", Toast.LENGTH_SHORT).show();
-            else Toast.makeText(this, "Thêm thất bại", Toast.LENGTH_SHORT).show();
-
+            database.insertProduct(name,description,price,imageId);
         }
     }
 }
