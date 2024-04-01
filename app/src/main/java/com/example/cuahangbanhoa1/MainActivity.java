@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.cuahangbanhoa1.SignUp_Login.Login;
 import com.example.cuahangbanhoa1.SignUp_Login.SignUp;
 
+//test code commit
+
 public class MainActivity extends AppCompatActivity {
     Button btnSignup,btnLogin;
 
