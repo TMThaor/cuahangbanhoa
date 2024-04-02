@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "51150608200",
+    "project_id": "cua-hang-ban-hoa1",
+    "storage_bucket": "cua-hang-ban-hoa1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51150608200:android:9ad7dd8dd694ae52ec857d",
+        "android_client_info": {
+          "package_name": "com.example.cuahangbanhoa1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOP_vCUBJY0HCJar9WP0_rd9a0ydOVNIE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
